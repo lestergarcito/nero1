@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111111">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/nero-icon-192.png">
+  <link rel="apple-touch-icon" href="assets/nero-icon-512.png">
+  <meta name="description" content="NERO Studio — joyería contemporánea en Guatemala.">
+  <link rel="manifest" href="manifest.json">
+  <title>NERO — Jewelry Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="announcement">NERO STUDIO · ENVÍOS A TODA GUATEMALA · PIEZAS QUE HABLAN POR TI</div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="NERO inicio">N<span>.</span>ERO</a>
+    <nav class="desktop-nav">
+      <a href="#coleccion">Colección</a><a href="#nosotros">Manifiesto</a><a href="#footer">Contacto</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" id="searchToggle" aria-label="Buscar">⌕</button>
+      <button class="icon-btn" id="accountBtn" aria-label="Cuenta">♙</button>
+      <button class="cart-trigger" id="cartBtn">BOLSA <span id="cartCount">0</span></button>
+      <button class="menu-toggle" id="menuToggle">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">JOYERÍA CONTEMPORÁNEA · GUATEMALA</p>
+        <h1>Menos ruido.<br><em>Más presencia.</em></h1>
+        <p class="hero-text">Objetos esenciales, detalles extraordinarios. Descubre piezas diseñadas para acompañar tu propia forma de destacar.</p>
+        <a class="btn btn-light" href="#coleccion">EXPLORAR COLECCIÓN <span>↗</span></a>
+        <div class="hero-note"><span class="dot"></span> NUEVA COLECCIÓN DISPONIBLE</div>
+      </div>
+      <div class="hero-art">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="hero-jewel">N</div>
+        <div class="hero-caption">THE FORM<br>OF FOREVER — 01</div>
+        <div class="hero-index">01 / 04</div>
+      </div>
+    </section>
+
+    <section class="ticker"><div>OBJETOS CON INTENCIÓN <span>✳</span> DISEÑO ATEMPORAL <span>✳</span> DETALLES QUE PERDURAN <span>✳</span> OBJETOS CON INTENCIÓN <span>✳</span></div></section>
+
+    <section class="collection section" id="coleccion">
+      <div class="section-heading">
+        <div><p class="eyebrow">SELECCIÓN NERO</p><h2>La colección<span>.</span></h2></div>
+        <p class="muted">Encuentra esa pieza que se siente<br>como si siempre hubiera sido tuya.</p>
+      </div>
+      <div class="toolbar">
+        <div class="filters" id="filters">
+          <button class="filter active" data-category="Todos">Todo</button>
+          <button class="filter" data-category="Anillos">Anillos</button>
+          <button class="filter" data-category="Collares">Collares</button>
+          <button class="filter" data-category="Pulseras">Pulseras</button>
+          <button class="filter" data-category="Aretes">Aretes</button>
+        </div>
+        <div class="sort-wrap"><span>ORDENAR</span><select id="sortSelect"><option value="featured">Destacados</option><option value="low">Precio: menor a mayor</option><option value="high">Precio: mayor a menor</option></select></div>
+      </div>
+      <div class="search-panel hidden" id="searchPanel"><input id="searchInput" type="search" placeholder="Busca una pieza, categoría o estilo..."><button id="closeSearch">✕</button></div>
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <section class="manifesto section" id="nosotros">
+      <div class="manifesto-mark">N.</div>
+      <div><p class="eyebrow">EL MANIFIESTO</p><h2>La elegancia no<br>necesita <em>permiso.</em></h2><p>En NERO creemos en el poder de los detalles. Creamos una experiencia de joyería donde la sencillez se convierte en carácter y cada pieza cuenta una historia propia.</p><a href="#coleccion" class="text-link">ENCUENTRA TU PIEZA ↗</a></div>
+      <div class="manifesto-side">EST. MMXXVI<br>GUATEMALA CITY</div>
+    </section>
+
+    <section class="newsletter section">
+      <p class="eyebrow">NOTAS DE NERO</p><h2>Un poco de brillo<br>en tu bandeja.</h2>
+      <form id="newsletterForm"><input type="email" id="newsletterEmail" placeholder="Tu correo electrónico" required><button type="submit">UNIRME ↗</button></form>
+      <small>Inspiración, lanzamientos y acceso anticipado. Sin ruido.</small>
+    </section>
+  </main>
+
+  <footer id="footer"><a class="brand footer-brand" href="#">N<span>.</span>ERO</a><p>Joyas para todos los días extraordinarios.</p><div>© 2026 NERO STUDIO · GUATEMALA</div></footer>
+
+  <div class="overlay hidden" id="overlay"></div>
+  <aside class="drawer" id="cartDrawer">
+    <div class="drawer-head"><div><p class="eyebrow">TU SELECCIÓN</p><h3>Bolsa <span id="drawerCount">(0)</span></h3></div><button class="close-btn" data-close>✕</button></div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-bottom"><div class="total-line"><span>Subtotal</span><strong id="cartSubtotal">Q0.00</strong></div><p class="tiny">Envío calculado al confirmar tu compra.</p><button class="btn btn-dark full" id="checkoutBtn">CONTINUAR AL PAGO ↗</button></div>
+  </aside>
+
+  <section class="modal hidden" id="checkoutModal">
+    <button class="close-btn modal-close" data-close>✕</button>
+    <p class="eyebrow">CASI TUYO</p><h2>Finalizar compra<span>.</span></h2>
+    <form id="checkoutForm" class="checkout-form">
+      <div class="form-grid"><label>Nombre completo<input name="name" required placeholder="Tu nombre"></label><label>Correo electrónico<input name="email" type="email" required placeholder="correo@ejemplo.com"></label></div>
+      <label>Dirección de entrega<input name="address" required placeholder="Zona, calle, número de casa..."></label>
+      <div class="form-grid"><label>Teléfono<input name="phone" required placeholder="0000-0000"></label><label>Municipio / departamento<input name="city" required placeholder="Ciudad de Guatemala"></label></div>
+      <label>Método de pago<select name="payment" id="paymentMethod" required><option value="Contra entrega">Pago contra entrega</option><option value="Transferencia bancaria">Transferencia bancaria</option><option value="Tarjeta (demostración)">Tarjeta (demostración)</option></select></label>
+      <div class="payment-hint" id="paymentHint">Paga en efectivo al recibir tu pedido.</div>
+      <div class="checkout-total"><span>Total estimado</span><strong id="checkoutTotal">Q0.00</strong></div>
+      <button class="btn btn-dark full" type="submit">REGISTRAR PEDIDO ↗</button>
+      <p class="tiny center">Prototipo académico: no se realiza ningún cobro real.</p>
+    </form>
+  </section>
+
+  <section class="modal account-modal hidden" id="accountModal">
+    <button class="close-btn modal-close" data-close>✕</button>
+    <p class="eyebrow">ESPACIO NERO</p><h2>Tu cuenta<span>.</span></h2>
+    <p class="muted">Ingresa como administrador para gestionar el catálogo y revisar pedidos.</p>
+    <form id="loginForm"><label>Usuario<input name="username" required placeholder="Usuario administrador"></label><label>Contraseña<input name="password" type="password" required placeholder="Contraseña"></label><button class="btn btn-dark full">INGRESAR</button></form>
+    <p class="tiny">Demo admin: <b>admin</b> · <b>nero2026</b></p>
+  </section>
+
+  <section class="admin-panel hidden" id="adminPanel">
+    <div class="admin-head"><div><p class="eyebrow">NERO CONTROL ROOM</p><h2>Panel de administración<span>.</span></h2></div><button class="btn btn-outline" id="logoutBtn">CERRAR SESIÓN</button></div>
+    <div class="admin-tabs"><button class="admin-tab active" data-tab="productsAdmin">Productos</button><button class="admin-tab" data-tab="ordersAdmin">Pedidos <b id="orderBadge">0</b></button></div>
+    <div id="productsAdmin" class="admin-content">
+      <div class="admin-columns"><form id="productForm" class="admin-form"><h3 id="productFormTitle">Nueva publicación</h3><input type="hidden" name="id"><label>Nombre<input name="name" required></label><label>Categoría<select name="category"><option>Anillos</option><option>Collares</option><option>Pulseras</option><option>Aretes</option></select></label><label>Precio (Q)<input name="price" type="number" min="1" step=".01" required></label><label>Descripción<textarea name="description" rows="3" required></textarea></label><label>URL de imagen<input name="image" placeholder="https://... (opcional)"></label><div class="admin-form-actions"><button class="btn btn-dark">GUARDAR PRODUCTO</button><button type="button" class="btn btn-outline" id="cancelEdit">LIMPIAR</button></div></form><div><h3>Publicaciones activas</h3><div id="adminProductList" class="admin-list"></div></div></div>
+    </div>
+    <div id="ordersAdmin" class="admin-content hidden"><div class="orders-title"><h3>Pedidos registrados</h3><span class="live-pill"><i></i> ACTUALIZACIÓN LOCAL</span></div><div id="adminOrdersList" class="admin-orders"></div></div>
+  </section>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="app.js"></script>
+  <script>if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(console.error)); }</script>
+</body>
+</html>
